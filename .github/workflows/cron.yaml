@@ -1,0 +1,33 @@
+name: Web Scrape News Articles
+on:
+  schedule:
+    - cron: '0 13 * * 1'
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Scrape LA Times
+        run: |
+          curl --request POST \
+          --url 'https://covid-19-tracker-one-lyart.vercel.app/api/news/scrape/latimes' \
+          --header 'Authorization: Bearer ${{ secrets.API_KEY }}'
+
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Scrape CNN
+        run: |
+          curl --request POST \
+          --url 'https://covid-19-tracker-one-lyart.vercel.app/api/news/scrape/cnn' \
+          --header 'Authorization: Bearer ${{ secrets.API_KEY }}'
+
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Scrape NY Times
+        run: |
+          curl --request POST \
+          --url 'https://covid-19-tracker-one-lyart.vercel.app/api/news/scrape/nytimes' \
+          --header 'Authorization: Bearer ${{ secrets.API_KEY }}'
