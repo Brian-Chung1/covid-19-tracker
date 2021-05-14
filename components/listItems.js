@@ -64,23 +64,37 @@ export const mainListItems = (
 export const secondaryListItems = (
   <div>
     <ListSubheader>News Headlines</ListSubheader>
-    <ListItem button>
-      <ListItemIcon>
-        <LibraryBooksIcon />
-      </ListItemIcon>
-      <ListItemText primary="All News" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Fox News" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="CNN" />
-    </ListItem>
+    <Link href="/news">
+      <ListItem button>
+        <ListItemIcon>
+          <LibraryBooksIcon />
+        </ListItemIcon>
+        <ListItemText primary="All News" />
+      </ListItem>
+    </Link>
+    <Link href="/news/latimes">
+      <ListItem button>
+        <ListItemIcon>
+          <AssignmentIcon />
+        </ListItemIcon>
+        <ListItemText primary="LA Times" />
+      </ListItem>
+    </Link>
+    <Link href="/news/nytimes">
+      <ListItem button>
+        <ListItemIcon>
+          <AssignmentIcon />
+        </ListItemIcon>
+        <ListItemText primary="NY Times" />
+      </ListItem>
+    </Link>
+    <Link href="/news/cnn">
+      <ListItem button>
+        <ListItemIcon>
+          <AssignmentIcon />
+        </ListItemIcon>
+        <ListItemText primary="CNN" />
+      </ListItem>
+    </Link>
   </div>
 );

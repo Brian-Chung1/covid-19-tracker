@@ -86,8 +86,8 @@ const SideDrawer = ({ open, handleDrawerOpen, handleDrawerClose }) => {
 
       <Divider />
       <List>{mainListItems}</List>
-      {/* <Divider />
-      <List>{secondaryListItems}</List> */}
+      <Divider />
+      <List>{secondaryListItems}</List>
     </Drawer>
   );
 };
