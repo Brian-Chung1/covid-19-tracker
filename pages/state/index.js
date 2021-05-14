@@ -101,8 +101,6 @@ const StateTable = () => {
     console.log(vaccineError);
   }
 
-  console.log(convertStateDataForDataGrid(data, vaccineData));
-
   return (
     <Grid container spacing={3}>
       {/* State Search Bar */}

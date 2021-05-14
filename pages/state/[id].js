@@ -108,8 +108,6 @@ const State = () => {
     getStateVaccineData(router.query.id, false, 1)
   );
 
-  console.log(router.query.id);
-
   if (
     isStateLoading ||
     isStateFetching ||
