@@ -19,7 +19,7 @@ const rounded = (num) => {
   }
 };
 
-const MapChart = ({ data, setTooltipData, resetTooltip }) => {
+const GlobalMapChart = ({ data, setTooltipData, resetTooltip }) => {
   return (
     <>
       <ComposableMap
@@ -32,6 +32,7 @@ const MapChart = ({ data, setTooltipData, resetTooltip }) => {
             {({ geographies }) =>
               geographies.map((geo) => (
                 <Geography
+                  stroke="#FFF"
                   key={geo.rsmKey}
                   geography={geo}
                   onMouseEnter={() => {
@@ -81,4 +82,4 @@ const MapChart = ({ data, setTooltipData, resetTooltip }) => {
   );
 };
 
-export default memo(MapChart);
+export default memo(GlobalMapChart);
