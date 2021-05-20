@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Head from 'next/head';
 import '../styles/globals.scss';
 import { QueryClient, QueryClientProvider } from 'react-query';
@@ -6,6 +6,7 @@ import { Hydrate } from 'react-query/hydration';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Layout from '../components/Layout';
 import { MyThemeProvider } from '../hooks/useTheme';
+import ProgressBar from '../components/ProgressBar';
 
 function MyApp({ Component, pageProps }) {
   const queryClientRef = useRef();
@@ -40,6 +41,7 @@ function MyApp({ Component, pageProps }) {
         <MyThemeProvider>
           <CssBaseline />
           <Layout>
+            <ProgressBar height="5" color="#2196f3" />
             <Hydrate state={pageProps.dehydratedState}>
               <Component {...pageProps} />
             </Hydrate>
