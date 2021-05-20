@@ -68,6 +68,7 @@ const getNYTimesArticles = async (searchKeyword) => {
         const link = $(element).find('a').attr('href');
         const date = getDateFromLink(link);
         const image = $(element).find('img').attr('src');
+        const alt = $(element).find('img').attr('alt');
         articles.push({
           type: 'nytimes',
           title,
@@ -77,6 +78,7 @@ const getNYTimesArticles = async (searchKeyword) => {
           link: setNYTimesLink(link),
           date,
           image,
+          alt,
         });
       }
     });
@@ -124,12 +126,21 @@ const getLATimesArticles = async (searchKeyword) => {
 
       const link = media.find('a').attr('href');
       const image = media.children().find('img').attr('data-src');
+      const alt = media.children().find('img').attr('alt');
 
       const title = content.children('div').find('p').text().trim();
       const description = content.find('.promo-description').text();
       const date = content.find('.promo-timestamp').attr('data-date');
 
-      articles.push({ title, type: 'latimes', description, date, image, link });
+      articles.push({
+        title,
+        type: 'latimes',
+        description,
+        date,
+        image,
+        link,
+        alt,
+      });
     }
   });
 

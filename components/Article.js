@@ -47,7 +47,7 @@ const Article = ({ data }) => {
   // all attributes: type, title, description, category, author, link, date, image,
   //cnn attributes: title, link, type
   //latimes attributes: title, link, description, date, image, type
-  //nytimes attributes: title, link, description, date, image, author, category, type
+  //nytimes attributes: title, link, description, date, image, author, category, type, alt
 
   return (
     <Card className={classes.root}>
@@ -57,7 +57,7 @@ const Article = ({ data }) => {
       >
         <Image
           src={data.image ? data.image : newsTypeImageMapping[data.type]}
-          alt={`${data.type} logo`}
+          alt={data.alt ? data.alt : `${data.type} logo`}
           width={300}
           height={200}
         />
