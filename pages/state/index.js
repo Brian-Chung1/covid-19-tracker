@@ -11,6 +11,7 @@ import Grid from '@material-ui/core/Grid';
 import StateSearch from '../../components/StateSearch';
 import { dehydrate } from 'react-query/hydration';
 import { convertStateDataForDataGrid } from '../../utils/index';
+import Head from 'next/head';
 
 const useStyles = makeStyles((theme) => ({}));
 
@@ -102,22 +103,31 @@ const StateTable = () => {
   }
 
   return (
-    <Grid container spacing={3}>
-      {/* State Search Bar */}
-      <Grid item xs={12}>
-        <StateSearch endpoint={'state'} />
+    <main>
+      <Head>
+        <title>US States Covid-19 Statistics</title>
+        <meta
+          name="description"
+          content="Covid-19 statistics for all US States"
+        />
+      </Head>
+      <Grid container spacing={3}>
+        {/* State Search Bar */}
+        <Grid item xs={12}>
+          <StateSearch endpoint={'state'} />
+        </Grid>
+        {/* State Data Table */}
+        <Grid item xs={12}>
+          <div style={{ height: 650, width: '100%' }}>
+            <DataGrid
+              rows={convertStateDataForDataGrid(data, vaccineData)}
+              columns={columns}
+              pageSize={10}
+            />
+          </div>
+        </Grid>
       </Grid>
-      {/* State Data Table */}
-      <Grid item xs={12}>
-        <div style={{ height: 650, width: '100%' }}>
-          <DataGrid
-            rows={convertStateDataForDataGrid(data, vaccineData)}
-            columns={columns}
-            pageSize={10}
-          />
-        </div>
-      </Grid>
-    </Grid>
+    </main>
   );
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import Head from 'next/head';
 
 import { useQuery, QueryClient } from 'react-query';
 import { dehydrate } from 'react-query/hydration';
@@ -49,15 +49,24 @@ const News = () => {
   }
 
   return (
-    <Grid container spacing={3}>
-      {data.map((article) => {
-        return (
-          <Grid item xs={12} key={article.id}>
-            <Article data={article} />
-          </Grid>
-        );
-      })}
-    </Grid>
+    <main>
+      <Head>
+        <title>Covid-19 News Articles</title>
+        <meta
+          name="description"
+          content="Covid-19 related news articles from popular news sources like LA Times, NY Times, CNN"
+        />
+      </Head>
+      <Grid container spacing={3}>
+        {data.map((article) => {
+          return (
+            <Grid item xs={12} key={article.id}>
+              <Article data={article} />
+            </Grid>
+          );
+        })}
+      </Grid>
+    </main>
   );
 };
 

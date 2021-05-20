@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-
+import Head from 'next/head';
 import SideDrawer from '../components/SideDrawer';
 import NavBar from '../components/Navbar';
 
@@ -38,6 +38,10 @@ const Layout = ({ children }) => {
 
   return (
     <div className={classes.root}>
+      <Head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <CssBaseline />
 
       <SideDrawer

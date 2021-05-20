@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import Head from 'next/head';
 
 import { useQuery, QueryClient } from 'react-query';
 import { useRouter } from 'next/router';
@@ -52,16 +52,33 @@ const News = () => {
     console.log(error);
   }
 
+  const seoTitle = {
+    latimes: 'Los Angeles Times',
+    nytimes: 'New York Times',
+    cnn: 'CNN',
+  };
+
   return (
-    <Grid container spacing={3}>
-      {data.map((article) => {
-        return (
-          <Grid item xs={12} key={article.id}>
-            <Article data={article} />
-          </Grid>
-        );
-      })}
-    </Grid>
+    <main>
+      <Head>
+        <title>{`${seoTitle[router.query.id]} News Articles`}</title>
+        <meta
+          name="description"
+          content={`Covid-19 related news articles from ${
+            seoTitle[router.query.id]
+          }`}
+        />
+      </Head>
+      <Grid container spacing={3}>
+        {data.map((article) => {
+          return (
+            <Grid item xs={12} key={article.id}>
+              <Article data={article} />
+            </Grid>
+          );
+        })}
+      </Grid>
+    </main>
   );
 };
 

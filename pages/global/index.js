@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Head from 'next/head';
 
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
@@ -57,21 +58,30 @@ const Global = () => {
   }
 
   return (
-    <Grid container spacing={3}>
-      {/* Statistics */}
-      <Grid item xs={12}>
-        <Statistics data={setGlobalStatCardData(data.Global)} />
+    <>
+      <Head>
+        <title>Global Coronavirus Dashboard</title>
+        <meta
+          name="description"
+          content="Covid-19 Dashboard showing global coronavirus statistics with a Geographical map chart"
+        />
+      </Head>
+      <Grid container spacing={3}>
+        {/* Statistics */}
+        <Grid item xs={12}>
+          <Statistics data={setGlobalStatCardData(data.Global)} />
+        </Grid>
+        {/* US Map */}
+        <Grid item xs={false} sm={12}>
+          <Box border={4} borderColor="inherit">
+            <Map
+              data={convertGlobalDataForGlobalMapChart(data.Countries)}
+              isGlobalMap={true}
+            />
+          </Box>
+        </Grid>
       </Grid>
-      {/* US Map */}
-      <Grid item xs={false} sm={12}>
-        <Box border={4} borderColor="inherit">
-          <Map
-            data={convertGlobalDataForGlobalMapChart(data.Countries)}
-            isGlobalMap={true}
-          />
-        </Box>
-      </Grid>
-    </Grid>
+    </>
   );
 };
 

@@ -25,6 +25,7 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 
 import { ParentSize } from '@visx/responsive';
+import Head from 'next/head';
 
 export async function getServerSideProps(context) {
   const queryClient = new QueryClient();
@@ -153,7 +154,14 @@ const State = () => {
   const newDeathStat = currentDeath - firstDeath;
 
   return (
-    <>
+    <main>
+      <Head>
+        <title>{`${router.query.id} Covid-19 Statistics`}</title>
+        <meta
+          name="description"
+          content={`Covid-19 and Vaccine statistics for ${router.query.id}`}
+        />
+      </Head>
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Statistics data={setStateStatCardData(stateData, vaccineData)} />
@@ -199,7 +207,7 @@ const State = () => {
           </ParentSize>
         </Grid>
       </Grid>
-    </>
+    </main>
   );
 };
 

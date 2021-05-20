@@ -17,6 +17,7 @@ import { formatNumber } from '../../utils/index';
 import { useQuery, QueryClient } from 'react-query';
 import { dehydrate } from 'react-query/hydration';
 import StateSearch from '../../components/StateSearch';
+import Head from 'next/head';
 
 const useStyles = makeStyles((theme) => ({
   mapButtons: {
@@ -75,27 +76,36 @@ export default function Vaccine() {
   }
 
   return (
-    <Grid container spacing={3}>
-      <Grid item xs={false} sm={12}>
-        <StateSearch endpoint={'vaccine'} />
+    <main>
+      <Head>
+        <title>US States Vaccine Statistics</title>
+        <meta
+          name="description"
+          content="Covid-19 Vaccine statistics for all US States including Moderna and Pfizer"
+        />
+      </Head>
+      <Grid container spacing={3}>
+        <Grid item xs={false} sm={12}>
+          <StateSearch endpoint={'vaccine'} />
+        </Grid>
+        <Grid item xs={false} sm={12}>
+          <Paper className={classes.mapButtons}>
+            <Tabs
+              value={value}
+              indicatorColor="secondary"
+              textColor="inherit"
+              onChange={handleChange}
+            >
+              <Tab value={2} label="All Data" />
+              <Tab value={1} label="Moderna Data" />
+              <Tab value={0} label="Pfizer Data" />
+            </Tabs>
+          </Paper>
+        </Grid>
+        <Grid item xs={false} sm={12}>
+          <Map data={data[value]} isVaccineMap={true} />
+        </Grid>
       </Grid>
-      <Grid item xs={false} sm={12}>
-        <Paper className={classes.mapButtons}>
-          <Tabs
-            value={value}
-            indicatorColor="secondary"
-            textColor="inherit"
-            onChange={handleChange}
-          >
-            <Tab value={2} label="All Data" />
-            <Tab value={1} label="Moderna Data" />
-            <Tab value={0} label="Pfizer Data" />
-          </Tabs>
-        </Paper>
-      </Grid>
-      <Grid item xs={false} sm={12}>
-        <Map data={data[value]} isVaccineMap={true} />
-      </Grid>
-    </Grid>
+    </main>
   );
 }
