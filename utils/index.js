@@ -445,6 +445,7 @@ const setGlobalStatCardData = (data) => {
       subcontent: invalidDataCheck(data.NewConfirmed)
         ? '0'
         : `${formatNumber(data.NewConfirmed)} New Cases`,
+      color: '#de3700',
     },
     {
       label: 'Total Recovered',
@@ -454,6 +455,7 @@ const setGlobalStatCardData = (data) => {
       subcontent: invalidDataCheck(data.NewRecovered)
         ? '0'
         : `${formatNumber(data.NewRecovered)} New Recovered`,
+      color: '#3a9a50',
     },
     {
       label: 'Total Deaths',
@@ -463,11 +465,13 @@ const setGlobalStatCardData = (data) => {
       subcontent: invalidDataCheck(data.NewDeaths)
         ? '0'
         : `${formatNumber(data.NewDeaths)} Deaths Today`,
+      color: '#767676',
     },
     {
       label: 'Total Population',
       content: '7.6 billion',
       subcontent: `Data as of ${data.Date.slice(0, 10)}`,
+      color: '#306cb2',
     },
   ];
   return res;
