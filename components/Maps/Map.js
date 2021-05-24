@@ -11,7 +11,7 @@ export const SkeletonMap = () => {
   return <Skeleton variant="rect" height={500} />;
 };
 
-const Map = ({ data, isVaccineMap, isGlobalMap }) => {
+const Map = ({ data, isVaccineMap, isGlobalMap, colorScale }) => {
   const [tooltipData, setTooltipData] = useState(null);
 
   const resetTooltip = () => {
@@ -25,6 +25,7 @@ const Map = ({ data, isVaccineMap, isGlobalMap }) => {
           data={data}
           setTooltipData={setTooltipData}
           resetTooltip={resetTooltip}
+          colorScale={colorScale}
         />
         {tooltipData && <GlobalTooltip data={tooltipData} />}
       </>
@@ -38,6 +39,7 @@ const Map = ({ data, isVaccineMap, isGlobalMap }) => {
           data={data}
           setTooltipData={setTooltipData}
           resetTooltip={resetTooltip}
+          colorScale={colorScale}
         />
         {tooltipData && <VaccineTooltip data={tooltipData} />}
       </>
@@ -50,6 +52,7 @@ const Map = ({ data, isVaccineMap, isGlobalMap }) => {
         data={data}
         setTooltipData={setTooltipData}
         resetTooltip={resetTooltip}
+        colorScale={colorScale}
       />
       {tooltipData && <Tooltip data={tooltipData} />}
     </>

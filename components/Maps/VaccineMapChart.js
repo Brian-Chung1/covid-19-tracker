@@ -1,13 +1,17 @@
 import React, { memo } from 'react';
 import { ComposableMap, Geographies, Geography } from 'react-simple-maps';
-import { formatNumber } from '../utils/index';
 
 const topoJSON =
   'https://cdn.jsdelivr.net/npm/us-atlas@3/states-albers-10m.json';
 const geoURL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json';
 // const geoURL = 'http://localhost:3001/geoJSON';
 
-const VaccineMapChart = ({ data, setTooltipData, resetTooltip }) => {
+const VaccineMapChart = ({
+  data,
+  setTooltipData,
+  resetTooltip,
+  colorScale,
+}) => {
   return (
     <ComposableMap
       width={1260}
@@ -26,6 +30,7 @@ const VaccineMapChart = ({ data, setTooltipData, resetTooltip }) => {
                 stroke="#FFF"
                 key={geo.rsmKey}
                 geography={geo}
+                fill={state ? colorScale(state.Doses_admin) : '#EEE'}
                 onMouseEnter={() => {
                   const type = state ? state.Vaccine_Type : 'Loading...';
                   const date = state ? state.Date : 'Loading...';
@@ -51,11 +56,11 @@ const VaccineMapChart = ({ data, setTooltipData, resetTooltip }) => {
                 }}
                 style={{
                   default: {
-                    fill: '#D6D6DA',
+                    // fill: '#D6D6DA',
                     outline: 'none',
                   },
                   hover: {
-                    fill: '#F53',
+                    fill: '#f3cf7a',
                     outline: 'none',
                   },
                   pressed: {

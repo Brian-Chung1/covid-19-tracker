@@ -3,7 +3,7 @@ import ReactTooltip from 'react-tooltip';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import { makeStyles } from '@material-ui/core/styles';
-import { formatNumber } from '../utils/index';
+import { formatNumber } from '../../utils/index';
 
 const useStyles = makeStyles((theme) => ({
   divider: {

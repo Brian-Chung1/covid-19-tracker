@@ -1,21 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Head from 'next/head';
-
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
-
 import { Statistics, SkeletonStatistics } from '../../components/Statistics';
-import Map, { SkeletonMap } from '../../components/Map';
-
+import Map, { SkeletonMap } from '../../components/Maps/Map';
 import { getGlobalData } from '../../hooks/useGlobalData';
-
 import {
-  formatNumber,
   convertGlobalDataForGlobalMapChart,
   setGlobalStatCardData,
 } from '../../utils/index';
-
+import { scaleQuantile } from 'd3-scale';
 import { useQuery, QueryClient } from 'react-query';
 import { dehydrate } from 'react-query/hydration';
 
@@ -57,6 +52,22 @@ const Global = () => {
     console.log(error);
   }
 
+  // console.log(data.Countries.map((d) => d.TotalConfirmed));
+
+  const colorScale = scaleQuantile()
+    .domain(data.Countries.map((d) => d.TotalConfirmed))
+    .range([
+      '#ffedea',
+      '#ffcec5',
+      '#ffad9f',
+      '#ff8a75',
+      '#ff5533',
+      '#e2492d',
+      '#be3d26',
+      '#9a311f',
+      '#782618',
+    ]);
+
   return (
     <>
       <Head>
@@ -73,10 +84,11 @@ const Global = () => {
         </Grid>
         {/* US Map */}
         <Grid item xs={false} sm={12}>
-          <Box border={4} borderColor="inherit">
+          <Box border={2} borderColor="inherit">
             <Map
               data={convertGlobalDataForGlobalMapChart(data.Countries)}
               isGlobalMap={true}
+              colorScale={colorScale}
             />
           </Box>
         </Grid>

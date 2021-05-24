@@ -1,19 +1,12 @@
-import React, { useState, useEffect } from 'react';
-
+import React, { useState } from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-
-import { Statistics, SkeletonStatistics } from '../../components/Statistics';
-import Map, { SkeletonMap } from '../../components/Map';
-
+import { scaleQuantile } from 'd3-scale';
+import Map, { SkeletonMap } from '../../components/Maps/Map';
 import { getDetailedAllStatesVaccineData } from '../../hooks/useVaccineData';
-import { formatNumber } from '../../utils/index';
-
 import { useQuery, QueryClient } from 'react-query';
 import { dehydrate } from 'react-query/hydration';
 import StateSearch from '../../components/StateSearch';
@@ -75,6 +68,28 @@ export default function Vaccine() {
     console.log(error);
   }
 
+  const getDomain = (data) => {
+    let admin = [];
+    for (const state in data) {
+      admin.push(data[state].Doses_admin);
+    }
+    return admin;
+  };
+
+  const colorScale = scaleQuantile()
+    .domain(getDomain(data[2]))
+    .range([
+      '#ffedea',
+      '#ffcec5',
+      '#ffad9f',
+      '#ff8a75',
+      '#ff5533',
+      '#e2492d',
+      '#be3d26',
+      '#9a311f',
+      '#782618',
+    ]);
+
   return (
     <main>
       <Head>
@@ -103,7 +118,7 @@ export default function Vaccine() {
           </Paper>
         </Grid>
         <Grid item xs={false} sm={12}>
-          <Map data={data[value]} isVaccineMap={true} />
+          <Map data={data[value]} isVaccineMap={true} colorScale={colorScale} />
         </Grid>
       </Grid>
     </main>

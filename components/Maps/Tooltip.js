@@ -3,7 +3,7 @@ import ReactTooltip from 'react-tooltip';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import { makeStyles } from '@material-ui/core/styles';
-import { formatNumber } from '../utils/index';
+import { formatNumber } from '../../utils/index';
 
 const useStyles = makeStyles((theme) => ({
   divider: {
@@ -12,22 +12,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const GlobalTooltip = ({ data }) => {
+const Tooltip = ({ data }) => {
   const classes = useStyles();
 
-  const { country, population, cases, deaths, recovered, date } = data;
+  const { state, cases, vaccinated, recovered, deaths, tests } = data;
 
   return (
     <ReactTooltip>
-      <Typography>{country}</Typography>
+      <Typography>{state}</Typography>
       <Divider className={classes.divider} />
       <Typography>Cases: {formatNumber(cases)}</Typography>
       <Typography>Deaths: {formatNumber(deaths)}</Typography>
+      <Typography>Vaccinated: {formatNumber(vaccinated)}</Typography>
       <Typography>Recovered: {formatNumber(recovered)}</Typography>
-      <Typography>Population: {formatNumber(population)}</Typography>
-      <Typography>As of: {date}</Typography>
+      <Typography>Tests: {formatNumber(tests)}</Typography>
     </ReactTooltip>
   );
 };
 
-export default GlobalTooltip;
+export default Tooltip;

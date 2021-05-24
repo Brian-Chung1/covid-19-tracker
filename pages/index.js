@@ -1,24 +1,19 @@
 import React from 'react';
-
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-
 import { Statistics, SkeletonStatistics } from '../components/Statistics';
-import Map, { SkeletonMap } from '../components/Map';
-
+import Map, { SkeletonMap } from '../components/Maps/Map';
 import { getStatesData } from '../hooks/useStatesData';
 import { getCountryData } from '../hooks/useCountryData';
 import {
   getCountryVaccineData,
   getAllStatesVaccineData,
 } from '../hooks/useVaccineData';
-
 import {
-  formatNumber,
   convertStateDataForMapChart,
   setCountryStatCardData,
 } from '../utils/index';
-
+import { scaleQuantile } from 'd3-scale';
 import { useQuery, QueryClient } from 'react-query';
 import { dehydrate } from 'react-query/hydration';
 
@@ -106,6 +101,20 @@ export default function Home() {
     console.log(stateVaccineError);
   }
 
+  const colorScale = scaleQuantile()
+    .domain(statesData.map((d) => d.cases))
+    .range([
+      '#ffedea',
+      '#ffcec5',
+      '#ffad9f',
+      '#ff8a75',
+      '#ff5533',
+      '#e2492d',
+      '#be3d26',
+      '#9a311f',
+      '#782618',
+    ]);
+
   return (
     <Grid container spacing={3}>
       {/* Statistics */}
@@ -116,7 +125,10 @@ export default function Home() {
       </Grid>
       {/* US Map */}
       <Grid item xs={false} sm={12}>
-        <Map data={convertStateDataForMapChart(statesData, stateVaccineData)} />
+        <Map
+          data={convertStateDataForMapChart(statesData, stateVaccineData)}
+          colorScale={colorScale}
+        />
       </Grid>
     </Grid>
   );
