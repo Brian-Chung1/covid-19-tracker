@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, createContext, useContext } from 'react';
+import Notification from '../components/Notification';
 
-const useNotification = () => {
-  const [open, setOpen] = useState(false);
+export const NotificationContext = createContext();
 
-  const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-
-    setOpen(false);
-  };
-
-  return [open, setOpen, handleClose];
+export const useNotification = () => {
+  return useContext(NotificationContext);
 };
 
-export default useNotification;
+export const NotificationProvider = () => {
+  const [notification, setNotification] = useState({
+    open: false,
+    message: '',
+  });
+
+  return (
+    <NotificationContext.Provider value={{ notification, setNotification }}>
+      <Notification notification={notification} />
+    </NotificationContext.Provider>
+  );
+};
