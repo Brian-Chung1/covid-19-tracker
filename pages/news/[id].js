@@ -70,10 +70,11 @@ const News = () => {
         />
       </Head>
       <Grid container spacing={3}>
-        {data.map((article) => {
+        {data.map((val, index, articles) => {
+          const currentArticle = articles[articles.length - index - 1];
           return (
-            <Grid item xs={12} key={article.id}>
-              <Article data={article} />
+            <Grid item xs={12} key={currentArticle.id}>
+              <Article data={currentArticle} />
             </Grid>
           );
         })}
