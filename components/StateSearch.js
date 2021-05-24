@@ -27,8 +27,6 @@ const StateSearch = ({ endpoint }) => {
 
   return (
     <>
-      <div>{`Value: ${value ? value : 'null'}`}</div>
-      <div>{`Input Value: ${inputValue}`}</div>
       <Autocomplete
         // id="field1"
         options={allStates}

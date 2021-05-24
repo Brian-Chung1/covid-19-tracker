@@ -118,7 +118,7 @@ const StateTable = () => {
         </Grid>
         {/* State Data Table */}
         <Grid item xs={12}>
-          <div style={{ height: 650, width: '100%' }}>
+          <div style={{ height: 630, width: '100%' }}>
             <DataGrid
               rows={convertStateDataForDataGrid(data, vaccineData)}
               columns={columns}
