@@ -5,14 +5,15 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/data-grid": "^4.0.0-alpha.25",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.57",
-    "@prisma/client": "^2.22.1",
+    "@prisma/client": "^2.23.0",
     "@visx/axis": "^1.8.0",
     "@visx/event": "^1.7.0",
     "@visx/gradient": "^1.7.0",
@@ -38,7 +39,7 @@
     "react-tooltip": "^4.2.17"
   },
   "devDependencies": {
-    "prisma": "^2.22.0",
+    "prisma": "^2.23.0",
     "sass": "^1.32.8"
   }
 }
