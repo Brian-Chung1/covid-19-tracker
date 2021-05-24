@@ -78,7 +78,7 @@ const getNYTimesArticles = async (searchKeyword) => {
           link: setNYTimesLink(link),
           date,
           image,
-          alt,
+          alt: !alt ? '' : alt,
         });
       }
     });
@@ -139,7 +139,7 @@ const getLATimesArticles = async (searchKeyword) => {
         date,
         image,
         link,
-        alt,
+        alt: !alt ? '' : alt,
       });
     }
   });
