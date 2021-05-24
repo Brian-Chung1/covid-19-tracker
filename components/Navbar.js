@@ -8,6 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import InfoIcon from '@material-ui/icons/Info';
 import ThemeToggle from './ThemeToggle';
+import Icon from '@material-ui/core/Icon';
 
 const drawerWidth = 220;
 
@@ -42,7 +43,35 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   appBarSpacer: theme.mixins.toolbar,
+  imageIcon: {
+    display: 'flex',
+    height: 'inherit',
+    width: 'inherit',
+  },
+  icon: {
+    display: 'flex',
+  },
 }));
+
+const MainIcon = () => {
+  const classes = useStyles();
+  return (
+    <div className={classes.icon}>
+      <Icon>
+        <img src={'/icon.svg'} className={classes.imageIcon} />
+      </Icon>
+      <Typography
+        component="h1"
+        variant="h6"
+        color="inherit"
+        noWrap
+        style={{ paddingLeft: 10 }}
+      >
+        Covid-19 Tracker
+      </Typography>
+    </div>
+  );
+};
 
 const Navbar = ({ open }) => {
   const classes = useStyles();
@@ -55,15 +84,9 @@ const Navbar = ({ open }) => {
       color="inherit"
     >
       <Toolbar className={classes.toolbar}>
-        <Typography
-          component="h1"
-          variant="h6"
-          color="inherit"
-          noWrap
-          className={classes.title}
-        >
-          Covid-19 Tracker
-        </Typography>
+        <div className={classes.title}>
+          <MainIcon />
+        </div>
         <ThemeToggle />
         <IconButton color="inherit" onClick={() => router.push('/about')}>
           <InfoIcon />
