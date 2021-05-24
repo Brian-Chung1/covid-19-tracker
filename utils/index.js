@@ -76,7 +76,7 @@ const casesPercentage = (population, totalCases) => {
 };
 
 const invalidDataCheck = (data) => {
-  return data <= 0 || data == null;
+  return data < 0 || data == null;
 };
 
 //Setting the labels for Stat Cards on Countries
@@ -87,7 +87,8 @@ const setCountryStatCardData = (data, vaccineData) => {
       content: invalidDataCheck(data.cases) ? 'N/A' : formatNumber(data.cases),
       subcontent: invalidDataCheck(data.todayCases)
         ? 'N/A'
-        : `${formatNumber(data.todayCases)} Cases Today`,
+        : `Cases Today: ${formatNumber(data.todayCases)}`,
+      color: '#de3700',
     },
     {
       label: 'Total Recovered',
@@ -96,7 +97,8 @@ const setCountryStatCardData = (data, vaccineData) => {
         : formatNumber(data.recovered),
       subcontent: invalidDataCheck(data.tests)
         ? 'N/A'
-        : `${formatNumber(data.tests)} Tests`,
+        : `Tests: ${formatNumber(data.tests)}`,
+      color: '#3a9a50',
     },
     {
       label: 'Total Deaths',
@@ -105,14 +107,16 @@ const setCountryStatCardData = (data, vaccineData) => {
         : formatNumber(data.deaths),
       subcontent: invalidDataCheck(data.todayDeaths)
         ? 'N/A'
-        : `${formatNumber(data.todayDeaths)} Deaths Today`,
+        : `Deaths Today: ${formatNumber(data.todayDeaths)}`,
+      color: '#767676',
     },
     {
       label: 'Total Vaccinated',
       content: invalidDataCheck(Object.values(vaccineData.timeline)[0])
         ? 'N/A'
         : formatNumber(Object.values(vaccineData.timeline)[0]),
-      subcontent: `${formatNumber(data.population)} Total Population`,
+      subcontent: `Population: ${formatNumber(data.population)}`,
+      color: '#306cb2',
     },
   ];
   return res;
@@ -125,8 +129,9 @@ const setStateStatCardData = (data, vaccineData) => {
       label: 'Total Cases',
       content: invalidDataCheck(data.cases) ? 'N/A' : formatNumber(data.cases),
       subcontent: invalidDataCheck(data.todayCases)
-        ? ''
-        : `${formatNumber(data.todayCases)} Cases Today`,
+        ? 'Cases Today: N/A'
+        : `Cases Today: ${formatNumber(data.todayCases)}`,
+      color: '#de3700',
     },
     {
       label: 'Total Recovered',
@@ -134,8 +139,9 @@ const setStateStatCardData = (data, vaccineData) => {
         ? 'N/A'
         : formatNumber(data.recovered),
       subcontent: invalidDataCheck(data.tests)
-        ? ''
-        : `${formatNumber(data.tests)} Total Tests`,
+        ? 'Total Tests: N/A'
+        : `Total Tests: ${formatNumber(data.tests)}`,
+      color: '#3a9a50',
     },
     {
       label: 'Total Deaths',
@@ -143,8 +149,9 @@ const setStateStatCardData = (data, vaccineData) => {
         ? 'N/A'
         : formatNumber(data.deaths),
       subcontent: invalidDataCheck(data.todayDeaths)
-        ? ''
-        : `${formatNumber(data.todayDeaths)} Deaths Today`,
+        ? 'Deaths Today: N/A'
+        : `Deaths Today: ${formatNumber(data.todayDeaths)}`,
+      color: '#767676',
     },
     {
       label: 'Total Vaccinated',
@@ -152,6 +159,7 @@ const setStateStatCardData = (data, vaccineData) => {
         ? 'N/A'
         : formatNumber(Object.values(vaccineData.timeline)[0]),
       subcontent: `${formatNumber(data.population)} Total Population`,
+      color: '#306cb2',
     },
   ];
   return res;
@@ -165,31 +173,34 @@ const setStateVaccineStatCardData = (vaccineData) => {
 
   const res = [
     {
-      label: `All Vaccines - ${all.Date}`,
+      label: `All - Doses Given`,
       content: invalidDataCheck(all.Doses_admin)
         ? 'N/A'
-        : `Doses Given: ${formatNumber(all.Doses_admin)}`,
+        : `${formatNumber(all.Doses_admin)}`,
       subcontent: invalidDataCheck(all.Doses_shipped)
         ? ''
         : `Doses Shipped: ${formatNumber(all.Doses_shipped)}`,
+      color: '#306cb2',
     },
     {
-      label: `Moderna Vaccine - ${moderna.Date}`,
+      label: `Moderna - Doses Given`,
       content: invalidDataCheck(moderna.Doses_admin)
         ? 'N/A'
-        : `Doses Given: ${formatNumber(moderna.Doses_admin)}`,
+        : `${formatNumber(moderna.Doses_admin)}`,
       subcontent: invalidDataCheck(moderna.Doses_shipped)
         ? ''
         : `Doses Shipped: ${formatNumber(moderna.Doses_shipped)}`,
+      color: '#e31936',
     },
     {
-      label: `Pfizer Vaccine - ${pfizer.Date}`,
+      label: `Pfizer - Doses Given`,
       content: invalidDataCheck(pfizer.Doses_admin)
         ? 'N/A'
-        : `Doses Given: ${formatNumber(pfizer.Doses_admin)}`,
+        : `${formatNumber(pfizer.Doses_admin)}`,
       subcontent: invalidDataCheck(pfizer.Doses_shipped)
         ? ''
         : `Doses Shipped: ${formatNumber(pfizer.Doses_shipped)}`,
+      color: '#7dba00',
     },
   ];
   return res;

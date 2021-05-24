@@ -127,6 +127,7 @@ const VaccineState = () => {
                 label={data[0].label}
                 content={data[0].content}
                 subcontent={data[0].subcontent}
+                color={data[0].color}
               />
             </Grid>
             <Grid item xs={12} md={6} lg={4}>
@@ -134,6 +135,7 @@ const VaccineState = () => {
                 label={data[1].label}
                 content={data[1].content}
                 subcontent={data[1].subcontent}
+                color={data[1].color}
               />
             </Grid>
             <Grid item xs={12} md={6} lg={4}>
@@ -141,6 +143,7 @@ const VaccineState = () => {
                 label={data[2].label}
                 content={data[2].content}
                 subcontent={data[2].subcontent}
+                color={data[2].color}
               />
             </Grid>
           </Grid>

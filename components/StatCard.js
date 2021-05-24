@@ -11,9 +11,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     height: 172,
   },
-  title: {
-    fontSize: 14,
-  },
   cardContent: {
     paddingTop: 20,
     paddingRight: 24,
@@ -21,33 +18,33 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: 24,
   },
   divider: {
-    marginTop: 50,
+    marginTop: 25,
+    height: 3,
   },
   subcontent: {
     paddingTop: theme.spacing(1),
   },
 }));
 
-const StatCard = ({ label, content, subcontent, preLabel }) => {
+const StatCard = ({ label, content, subcontent, color }) => {
   const classes = useStyles();
 
   return (
     <Card className={classes.root}>
       <CardContent className={classes.cardContent}>
-        <Typography
-          className={classes.title}
-          color="textSecondary"
-          gutterBottom
-        >
+        <Typography variant="h6" color="textSecondary">
           {label}
         </Typography>
-        <Typography className={classes.content} variant="h5" component="h2">
+        <Typography className={classes.content} variant="h4" component="h2">
           {content}
         </Typography>
-        <Divider className={classes.divider} />
+        <Divider
+          className={classes.divider}
+          style={color ? { background: color } : {}}
+        />
         <Typography
           className={classes.subcontent}
-          variant="body1"
+          variant="subtitle1"
           component="p"
         >
           {subcontent}
