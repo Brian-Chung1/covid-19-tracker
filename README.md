@@ -1,34 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<br />
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/65573413/120561343-3924a100-c3b9-11eb-9c5c-913399a9771d.png" alt="Logo" width="95" height="95">
 
-## Getting Started
+  <h1 align="center">Covid 19 Tracker</h1>
 
-First, run the development server:
+  <p align="center">
+    Covid-19 / Vaccine Dashboard
+    <br />
+      <a href="https://covid-19-tracker-one-lyart.vercel.app/">
+        <strong>View Live Site »</strong>
+      </a>
+    <br />
+  </p>
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+<!-- ABOUT THE PROJECT -->
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## About The Project
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+![bloggerdemo](https://user-images.githubusercontent.com/65573413/120565262-87d63900-c3c1-11eb-8b3a-0acb303dad60.gif)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Covid-19 Dashboard which shows the latest coronavirus and vaccine statistics for USA and other global countries. Generated choropleth geographical maps and line charts using D3 based libraries. Created a REST API and an interface that displays the latest coronavirus related articles by efficiently webscraping popular news sites. A cron job is run every week to web scrape and store news articles in a PostgreSQL database. Application is deployed on Vercel and database is hosted on Heroku.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Built With
 
-## Learn More
+Project is built with Next.js (React, Node, PostgreSQL) \
+Other libraries used
 
-To learn more about Next.js, take a look at the following resources:
+- [React Query](https://github.com/tannerlinsley/react-query) & [Axios](https://github.com/axios/axios) - Data fetching & SSR
+- [Visx](https://github.com/airbnb/visx) & [React Simple Maps](https://github.com/zcreativelabs/react-simple-maps) - Data Visualization (D3)
+- [Material UI](https://github.com/mui-org/material-ui) - UI Library
+- [Prisma](https://github.com/prisma/prisma) - ORM
+- [Cheerio](https://github.com/cheeriojs/cheerio) - Web Scraping
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<!-- GETTING STARTED -->
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Cloning the Repo
 
-## Deploy on Vercel
+### Prerequisites
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The Covid-19 news article interface is not supported on cloning the repo
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Installation
+
+1.  Clone the repo
+    ```sh
+    git clone https://github.com/Brian-Chung1/covid-19-tracker.git
+    ```
+2.  Install NPM packages
+    ```sh
+    npm install
+    ```
+3.  To run locally
+
+    ```sh
+    npm run dev
+    ```
+
+    <!-- CONTACT -->
+
+## Contact
+
+Brian Chung - brian.chung.cs@gmail.com \
+Project Link: https://covid-19-tracker-one-lyart.vercel.app/
