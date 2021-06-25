@@ -9,10 +9,8 @@ import {
   getCountryVaccineData,
   getAllStatesVaccineData,
 } from '../hooks/useVaccineData';
-import {
-  convertStateDataForMapChart,
-  setCountryStatCardData,
-} from '../utils/index';
+import { convertStateDataForMapChart } from '../utils/mapUtils';
+import { setCountryStatCardData } from '../utils/statCardFormat';
 import { scaleQuantile } from 'd3-scale';
 import { useQuery, QueryClient } from 'react-query';
 import { dehydrate } from 'react-query/hydration';

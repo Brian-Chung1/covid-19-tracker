@@ -11,14 +11,16 @@ import {
 } from '../../components/visx/HistoricalChart';
 import {
   upperCaseFirstLetter,
-  setStateStatCardData,
   calcPercentage,
   formatNumber,
+} from '../../utils/index';
+import {
   formatCumulativeCasesData,
   formatCumulativeDeathsData,
   formatNewCasesData,
   formatNewDeathsData,
-} from '../../utils/index';
+} from '../../utils/chartUtils';
+import { setStateStatCardData } from '../../utils/statCardFormat';
 import { getStateVaccineData } from '../../hooks/useVaccineData';
 
 import Grid from '@material-ui/core/Grid';

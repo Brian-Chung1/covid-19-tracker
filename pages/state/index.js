@@ -10,7 +10,7 @@ import Skeleton from '@material-ui/lab/Skeleton';
 import Grid from '@material-ui/core/Grid';
 import StateSearch from '../../components/StateSearch';
 import { dehydrate } from 'react-query/hydration';
-import { convertStateDataForDataGrid } from '../../utils/index';
+import { convertStateDataForDataGrid } from '../../utils/dataGridUtils';
 import Head from 'next/head';
 
 const useStyles = makeStyles((theme) => ({}));

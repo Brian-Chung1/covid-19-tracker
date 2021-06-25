@@ -8,12 +8,14 @@ import {
 } from '../../hooks/useVaccineData';
 import {
   upperCaseFirstLetter,
-  setStateVaccineStatCardData,
   formatNumber,
-  formatStateHistoricalVaccineData,
-  formatCumulativeVaccineData,
   calcPercentage,
 } from '../../utils/index';
+import {
+  formatStateHistoricalVaccineData,
+  formatCumulativeVaccineData,
+} from '../../utils/chartUtils';
+import { setStateVaccineStatCardData } from '../../utils/statCardFormat';
 import { Statistics, SkeletonStatistics } from '../../components/Statistics';
 import { StatCard } from '../../components/StatCard';
 import {

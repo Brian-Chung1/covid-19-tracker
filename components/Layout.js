@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
 import Head from 'next/head';
 import SideDrawer from '../components/SideDrawer';
 import NavBar from '../components/Navbar';

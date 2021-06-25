@@ -6,10 +6,8 @@ import Box from '@material-ui/core/Box';
 import { Statistics, SkeletonStatistics } from '../../components/Statistics';
 import Map, { SkeletonMap } from '../../components/Maps/Map';
 import { getGlobalData } from '../../hooks/useGlobalData';
-import {
-  convertGlobalDataForGlobalMapChart,
-  setGlobalStatCardData,
-} from '../../utils/index';
+import { convertGlobalDataForGlobalMapChart } from '../../utils/mapUtils';
+import { setGlobalStatCardData } from '../../utils/statCardFormat';
 import { scaleQuantile } from 'd3-scale';
 import { useQuery, QueryClient } from 'react-query';
 import { dehydrate } from 'react-query/hydration';
