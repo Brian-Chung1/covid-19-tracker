@@ -64,7 +64,7 @@ export const mainListItems = (
 export const secondaryListItems = (
   <div>
     <ListSubheader>News Headlines</ListSubheader>
-    <Link href="/news">
+    <Link href="/news/all/0">
       <ListItem button>
         <ListItemIcon>
           <LibraryBooksIcon />
@@ -72,7 +72,7 @@ export const secondaryListItems = (
         <ListItemText primary="All News" />
       </ListItem>
     </Link>
-    <Link href="/news/latimes">
+    <Link href="/news/latimes/0">
       <ListItem button>
         <ListItemIcon>
           <AssignmentIcon />
@@ -80,7 +80,7 @@ export const secondaryListItems = (
         <ListItemText primary="LA Times" />
       </ListItem>
     </Link>
-    <Link href="/news/nytimes">
+    <Link href="/news/nytimes/0">
       <ListItem button>
         <ListItemIcon>
           <AssignmentIcon />
@@ -88,7 +88,7 @@ export const secondaryListItems = (
         <ListItemText primary="NY Times" />
       </ListItem>
     </Link>
-    <Link href="/news/cnn">
+    <Link href="/news/cnn/0">
       <ListItem button>
         <ListItemIcon>
           <AssignmentIcon />
