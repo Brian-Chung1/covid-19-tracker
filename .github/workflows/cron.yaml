@@ -1,26 +1,26 @@
-name: Web Scrape News Articles
-on:
-  schedule:
-    - cron: '0 13 * * 1'
-    # —— Runs scrape every Monday 1:00PM —————————————————————————————————————————————
+# name: Web Scrape News Articles
+# on:
+#   schedule:
+#     - cron: '0 13 * * 1'
+#     # —— Runs scrape every Monday 1:00PM —————————————————————————————————————————————
 
-jobs:
-  web_scrape:
-    name: Web Scrape Articles
-    runs-on: ubuntu-latest
-    steps:
-      - name: Scrape LA Times
-        run: |
-          curl --request POST \
-          --url 'https://covid-19-tracker-one-lyart.vercel.app/api/news/scrape/latimes' \
-          --header 'Authorization: Bearer ${{ secrets.API_KEY }}'
-      - name: Scrape NY Times
-        run: |
-          curl --request POST \
-          --url 'https://covid-19-tracker-one-lyart.vercel.app/api/news/scrape/latimes' \
-          --header 'Authorization: Bearer ${{ secrets.API_KEY }}'
-      - name: Scrape CNN
-        run: |
-          curl --request POST \
-          --url 'https://covid-19-tracker-one-lyart.vercel.app/api/news/scrape/latimes' \
-          --header 'Authorization: Bearer ${{ secrets.API_KEY }}'
+# jobs:
+#   web_scrape:
+#     name: Web Scrape Articles
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Scrape LA Times
+#         run: |
+#           curl --request POST \
+#           --url 'https://covid-19-tracker-one-lyart.vercel.app/api/news/scrape/latimes' \
+#           --header 'Authorization: Bearer ${{ secrets.API_KEY }}'
+#       - name: Scrape NY Times
+#         run: |
+#           curl --request POST \
+#           --url 'https://covid-19-tracker-one-lyart.vercel.app/api/news/scrape/latimes' \
+#           --header 'Authorization: Bearer ${{ secrets.API_KEY }}'
+#       - name: Scrape CNN
+#         run: |
+#           curl --request POST \
+#           --url 'https://covid-19-tracker-one-lyart.vercel.app/api/news/scrape/latimes' \
+#           --header 'Authorization: Bearer ${{ secrets.API_KEY }}'
